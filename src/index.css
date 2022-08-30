@@ -29,6 +29,11 @@ code {
 .normal {
   background-color: #f4f4f4;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .fairy {
   background-color: rgba(255, 192, 203, 0.863);
 }
