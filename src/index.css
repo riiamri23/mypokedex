@@ -1,8 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Poppins", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,41 +10,97 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.rock {
+/*BACKGROUD COLOR CARD*/
+.rock-Bgcolor {
   background-color: rgb(148, 81, 81);
 }
-.ghost {
+.ghost-Bgcolor {
   background-color: rgb(247, 247, 247);
 }
-.electric {
+.electric-Bgcolor {
   background-color: rgb(255, 255, 161);
 }
-.bug {
+.bug-Bgcolor {
   background-color: #f6d6a7;
 }
-.poison {
+.poison-Bgcolor {
   background-color: #e0a7f6;
 }
-.normal {
+.normal-Bgcolor {
   background-color: #f4f4f4;
 }
+.fairy-Bgcolor {
+  background-color: rgba(255, 192, 203, 0.863);
+}
+.fire-Bgcolor {
+  background-color: #fbe3df;
+}
+.grass-Bgcolor {
+  background-color: #e2f9e1;
+}
+.water-Bgcolor {
+  background-color: #e0f1fd;
+}
 
+/*BACKGROUD COLOR TYPE*/
+.rock-type {
+  background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
+  background-color: #a38c21;
+  color: #fff;
+}
+.ghost-type {
+  background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
+  background-color: #7b62a3;
+  color: #fff;
+}
+.electric-type {
+  background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
+  background-color: #eed535;
+  color: #212121;
+}
+.bug-type {
+  background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
+  background-color: #729f3f;
+  color: #fff;
+}
+.poison-type {
+  background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
+  background-color: #b97fc9;
+  color: #fff;
+}
+.normal-type {
+  background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
+  background-color: #a4acaf;
+  color: #212121;
+}
+.fairy-type {
+  background: linear-gradient(180deg, #fdb9e9 50%, #fdb9e9 50%);
+  background-color: #fdb9e9;
+  color: #212121;
+}
+.fire-type {
+  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+  background-color: #fd7d24;
+  color: #fff;
+}
+.flying-type {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background-color: #3dc7ef;
+  color: #212121;
+}
+.grass-type {
+  background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
+  background-color: #9bcc50;
+  color: #212121;
+}
+.water-type {
+  background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
+  background-color: #4592c4;
+  color: #fff;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.fairy {
-  background-color: rgba(255, 192, 203, 0.863);
-}
-.fire {
-  background-color: #fbe3df;
-}
-.grass {
-  background-color: #e2f9e1;
-}
-.water {
-  background-color: #e0f1fd;
-}
 
 .app-contaner {
   display: flex;
@@ -61,36 +116,8 @@ code {
   align-items: center;
   justify-content: center;
 }
-.all-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-.thumb-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 0;
-  margin: 0.3rem;
-  border: 1px solid #efefef;
-  border-radius: 0.2rem;
-  min-width: 160px;
-  text-align: center;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
-}
 h3 {
   margin-bottom: 0.2rem;
-}
-.thumb-container .number {
-  border-radius: 1rem;
-  padding: 0.2rem 0.4rem;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-.thumb-container img {
-  width: 120px;
-  height: 120px;
 }
 .thumb-container small {
   text-transform: capitalize;
