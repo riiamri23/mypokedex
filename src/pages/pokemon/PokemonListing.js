@@ -21,7 +21,7 @@ const PokemonListing = () => {
           `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
         );
         const dataPokemon = await res.json();
-        console.log(dataPokemon);
+        // console.log(dataPokemon);
         setAllPokemons((currentList) => [...currentList, dataPokemon]);
       });
     }

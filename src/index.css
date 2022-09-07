@@ -41,6 +41,9 @@ code {
 .water-Bgcolor {
   background-color: #e0f1fd;
 }
+.ground-Bgcolor {
+  background-color: rgb(218, 191, 191);
+}
 
 /*BACKGROUD COLOR TYPE*/
 .rock-type {

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PokemonListing from './pages/pokemon/PokemonListing';
+import RouterApp from './router/RouterApp';
 
 function App() {
   useEffect(() => {
@@ -18,7 +19,8 @@ function App() {
   }, []);
  
   return (
-      <PokemonListing />
+      // <PokemonListing />
+      <RouterApp />
   );
 }
 
