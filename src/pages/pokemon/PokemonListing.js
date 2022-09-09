@@ -34,7 +34,7 @@ const PokemonListing = () => {
   }, []);
 
   return (
-    <div className="app-contaner">
+    <div className="app-contaner dark: ">
       <h1 className="block text-sm font-medium dark:text-white text-black">
         My Pokedex
       </h1>
