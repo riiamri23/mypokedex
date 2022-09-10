@@ -101,7 +101,7 @@ const PokemonDetailContainer = ({ pokemon }) => {
           <div className="dark:bg-white bg-slate-200 p-5 max-w-sm rounded-lg my-5">
             <h3>Evolution</h3>
             <div>
-              <EvolutionComponent evoChain={pokemon?.evolution?.chain} species={pokemon?.species} />
+              <EvolutionComponent evoChain={pokemon?.evolution?.chain} species={pokemon?.evolution?.chain?.species} />
             </div>
           </div>
           <div className="dark:bg-white bg-slate-200 p-5 max-w-sm rounded-lg my-5">
