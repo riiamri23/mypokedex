@@ -14,10 +14,16 @@ export default function PokemonDetail() {
 
       const dataPokemon = await res.json();
 
+      const resSpecies = await fetch(
+        dataPokemon.species.url
+      );
+      dataPokemon.resSpecies = await resSpecies.json();
+
       const resEvo = await fetch(
-        `https://pokeapi.co/api/v2/evolution-chain/${dataPokemon.id}`
+        dataPokemon.resSpecies.evolution_chain.url
       );
       dataPokemon.evolution = await resEvo.json();
+
       console.log(dataPokemon);
 
       setPokemon((prevState) => dataPokemon);
@@ -92,14 +98,15 @@ const PokemonDetailContainer = ({ pokemon }) => {
         </div>
 
         <div>
-          <div className="dark:bg-white bg-slate-200 py-5 max-w-sm rounded-lg my-5">
+          <div className="dark:bg-white bg-slate-200 p-5 max-w-sm rounded-lg my-5">
             <h3>Evolution</h3>
             <div>
-              <EvolutionComponent evoChain={pokemon?.evolution?.chain} />
+              <EvolutionComponent evoChain={pokemon?.evolution?.chain} species={pokemon?.species} />
             </div>
           </div>
-          <div className="dark:bg-white bg-slate-200 py-5 max-w-sm rounded-lg my-5">
+          <div className="dark:bg-white bg-slate-200 p-5 max-w-sm rounded-lg my-5">
             <h3>Description</h3>
+            <p>{pokemon?.resSpecies?.flavor_text_entries?.[0].flavor_text}</p>
           </div>
         </div>
       </div>
@@ -127,12 +134,21 @@ const PokemonDetailContainer = ({ pokemon }) => {
   );
 };
 
-const EvolutionComponent = ({ evoChain }) => {
+const EvolutionComponent = ({ evoChain, species }) => {
+
   
-  console.log(evoChain);
-  return evoChain !== undefined ? evoChain?.evolves_to?.map((evo, index)=>{
-    return (<div key={index}>
-      <div>{evo?.species?.name}</div>{evo !== undefined ?<EvolutionComponent evoChain={evo} />: false}
-    </div>);
-  }) : false;
+  // console.log(evoChain);
+  // return evoChain !== undefined ? evoChain?.evolves_to?.map((evo, index)=>{
+  //   return (<div key={index}>
+  //     <div>{evo?.species?.name}</div>{evo !== undefined ?<EvolutionComponent evoChain={evo} />: false}
+  //   </div>);
+  // }) : false;
+  return (<div>
+    {species !== undefined ? <div>{species?.name}</div> : <></>}
+    {evoChain?.evolves_to?.length > 0 ? evoChain?.evolves_to?.map((evo, index)=>{
+        return (<div key={index}>
+          <div>{evo?.species?.name}</div>{evo !== undefined ?<EvolutionComponent evoChain={evo} />: false}
+        </div>);
+    }): false}
+  </div>);
 };
