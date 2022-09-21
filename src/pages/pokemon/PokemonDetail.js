@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import {FaArrowCircleLeft } from "react-icons/fa";
 
 export default function PokemonDetail() {
   const [pokemon, setPokemon] = useState({});
@@ -24,9 +25,9 @@ export default function PokemonDetail() {
       );
       dataPokemon.evolution = await resEvo.json();
 
-      console.log(dataPokemon);
+      // console.log(dataPokemon);
 
-      setPokemon((prevState) => dataPokemon);
+      setPokemon(() => dataPokemon);
     };
 
     getPokemon();
@@ -41,10 +42,17 @@ export default function PokemonDetail() {
 }
 
 const PokemonDetailContainer = ({ pokemon }) => {
+  let navigate = useNavigate();
   return (
     <div className="container mx-auto px-4">
       <div className="block py-10">
+        
         <h1 className="text-4xl dark:text-white text-black">
+          <FaArrowCircleLeft
+              // onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={()=>navigate('/')}
+              className="text-gray-500 dark:text-gray-400 text-2xl cursor-pointer inline-block mx-4"
+          />
           #{pokemon?.id} - {pokemon?.name.toUpperCase()}
         </h1>
       </div>
@@ -111,38 +119,12 @@ const PokemonDetailContainer = ({ pokemon }) => {
         </div>
       </div>
 
-      {/* <div className="mx-auto flex flex-col items-center">
-            <img src={pokemon?.sprites?.other?.dream_world?.front_default} alt={pokemon?.name} className="h-48 w-48" width="50" height="50" preserveAspectRatio="xMidYMid meet" />
-            <h1>{pokemon?.name}</h1>
-            <div className="flex m-auto">
-                {pokemon.types.map((type, index)=>{
-                    return (<span className={`${type?.type?.name}-type text-xl px-3 py-1 mx-1 rounded capitalize`} key={index}>{type?.type?.name}</span>);
-                })}
-            </div>
-            <div className="flex flex-row">
-                <div>
-                    <h3>5.25kg</h3>
-                    <h3>Weight</h3>
-                </div>
-                <div>
-                    <h3>5.25kg</h3>
-                    <h3>height</h3>
-                </div>
-            </div>
-        </div> */}
     </div>
   );
 };
 
 const EvolutionComponent = ({ evoChain, species }) => {
-
   
-  // console.log(evoChain);
-  // return evoChain !== undefined ? evoChain?.evolves_to?.map((evo, index)=>{
-  //   return (<div key={index}>
-  //     <div>{evo?.species?.name}</div>{evo !== undefined ?<EvolutionComponent evoChain={evo} />: false}
-  //   </div>);
-  // }) : false;
   return (<div>
     {species !== undefined ? <div>{species?.name}</div> : <></>}
     {evoChain?.evolves_to?.length > 0 ? evoChain?.evolves_to?.map((evo, index)=>{
